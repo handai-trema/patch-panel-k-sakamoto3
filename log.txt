@@ -1,0 +1,24 @@
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/patch_panel create 0xabc 1 2
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/patch_panel cmirror 0xabc 2 3
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/trema send_packets --source host1 --dest host2
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/trema send_packets --source host2 --dest host1
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/trema show_stats host1
+Packets sent:
+  192.168.0.1 -> 192.168.0.2 = 1 packet
+Packets received:
+  192.168.0.2 -> 192.168.0.1 = 1 packet
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/trema show_stats host2
+Packets sent:
+  192.168.0.2 -> 192.168.0.1 = 1 packet
+Packets received:
+  192.168.0.1 -> 192.168.0.2 = 1 packet
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/trema show_stats host3
+Packets received:
+  192.168.0.1 -> 192.168.0.2 = 1 packet
+  192.168.0.2 -> 192.168.0.1 = 1 packet
+ensyuu2@ensyuu2-VirtualBox:~/patch-panel-k-sakamoto3$ ./bin/patch_panel list 0xabc
+Patch list
+host1 -- host2
+Mirror list
+host2 -> host3
+

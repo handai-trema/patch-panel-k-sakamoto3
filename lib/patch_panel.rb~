@@ -16,9 +16,9 @@ class PatchPanel < Trema::Controller
   def create_patch(dpid, port_a, port_b)
     add_flow_entries dpid, port_a, port_b
     @patch[dpid] << [port_a, port_b].sort
-#    @patch[dpid].each do |port_c, port_d|
+    @patch[dpid].each do |port_c, port_d|
 #      puts "saka #{port_c} | #{port_d}"
-#    end
+    end
   end
 
   def delete_patch(dpid, port_a, port_b)
@@ -27,10 +27,10 @@ class PatchPanel < Trema::Controller
   end
 
   def create_mirror(dpid, port_monitored, port_monitoring)
-#    print(dpid)
-#    print(port_monitored)
-#    print(port_monitoring)
-#    print("--")
+    print(dpid)
+    print(port_monitored)
+    print(port_monitoring)
+    print("--")
     add_mirror_entries dpid, port_monitored, port_monitoring
     @mirror[dpid] << [port_monitored, port_monitoring].sort
   end
